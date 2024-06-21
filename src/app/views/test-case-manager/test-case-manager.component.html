@@ -1,0 +1,38 @@
+<!-- Tabela -->
+<nb-card [nbSpinner]="loading" nbSpinnerMessage="Executando testes">
+    <nb-card-header>Usuários</nb-card-header>
+    <nb-card-body>
+        <button nbButton status="success" class="button-add-new-item" >Novo</button>
+        <app-responsive-table>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Descrição</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+                <th>Executar</th>
+            </tr>
+
+            <tr *ngFor="let testCase of testCaseList">
+                <td data-th="Id">{{testCase.id}}</td>
+                <td data-th="Nome">{{testCase.title}}</td>
+                <td data-th="Email">{{testCase.description}}</td>
+                <td data-th="Eitar" class="td-icon-action">
+                    <a (click)="goToEditTestCasePage(testCase.id)">
+                        <nb-icon icon="edit-2-outline" status="primary" nbTooltip="Editar"></nb-icon>
+                    </a>
+                </td>
+                <td data-th="Excluir" class="td-icon-action">
+                    <a>
+                        <nb-icon icon="trash-2-outline" status="danger" nbTooltip="Excluir" nbTooltipStatus="danger" (click)="deleteTestCaseById(testCase.id)"></nb-icon>
+                    </a>
+                </td>
+                <td data-th="Executar" class="td-icon-action">
+                    <a>
+                        <nb-icon icon="play-circle-outline" status="success" nbTooltip="Executar" nbTooltipStatus="success" (click)="executeTestCase(testCase.id)"></nb-icon>
+                    </a>
+                </td>
+            </tr>
+        </app-responsive-table>
+    </nb-card-body>
+</nb-card>

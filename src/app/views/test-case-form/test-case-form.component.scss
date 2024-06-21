@@ -1,0 +1,29 @@
+@import '../../../themes.scss';
+
+nb-checkbox {
+    margin-bottom: 1rem;
+}
+  
+.form-inline [fullWidth] {
+    flex: 1;
+}
+
+.form-inline > * {
+    margin: 0 1.5rem 1.5rem 0;
+}
+
+nb-card.inline-form-card nb-card-body {
+    padding-bottom: 0;
+}
+
+.form-group {
+    margin: 0 1.5rem 1.5rem 0;
+}
+
+.box-shadow:hover {
+  box-shadow: 0 9px 47px 11px nb-theme(box-shadow-color);
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}

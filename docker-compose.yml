@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    container_name: view
+    image: view
+    build:
+      context: .
+    networks:
+      - net_view
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+      - /etc/letsencrypt/live/rcasdev.com/fullchain.pem:/root/ssl/fullchain.pem
+      - /etc/letsencrypt/live/rcasdev.com/privkey.pem:/root/ssl/privkey.pem
+      - /etc/letsencrypt/live/api.rcasdev.com/fullchain.pem:/root/sslapi/fullchain.pem
+      - /etc/letsencrypt/live/api.rcasdev.com/privkey.pem:/root/sslapi/privkey.pem
+    ports:
+      - '80:80'
+      - '443:443'
+
+networks:
+  net_view:
+    external: true
+
+

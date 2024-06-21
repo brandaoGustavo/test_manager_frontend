@@ -1,0 +1,76 @@
+@import '../../../themes.scss';
+
+@include nb-install-component {
+  table.table {
+    font-family: nb-theme(font-family-primary);
+    color: nb-theme(text-basic-color);
+    /* This will change the color when you switch the theme */
+  }
+}
+
+$mobile-width: 768px;
+
+:host ::ng-deep .custom-responsive-table {
+  width: 100%;
+  overflow: hidden;
+
+  th {
+    display: none;  
+  }
+
+  td {
+    display: block;
+
+    &:first-child {
+      padding-top: .5em;
+    }
+
+    &:last-child {
+      padding-bottom: .5em;
+    }
+
+    &:before {
+      content: attr(data-th)": ";
+      font-weight: bold;
+      width: 6.5em;
+      display: inline-block;
+
+      @media (min-width: $mobile-width) {
+        display: none;
+      }
+    }
+  }
+
+  th, td {
+    margin: .5em 1em;
+
+    @media (min-width: $mobile-width) {
+      display: table-cell;
+
+      padding: 1em !important;
+    }
+  }
+
+  @media (min-width: $mobile-width) {
+    .td-icon-action {
+      width: 1%;
+      white-space: nowrap;
+      text-align: center;
+    }
+  
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      border-color: #edeff2;
+    }
+    
+  }
+
+  tr:nth-child(even) {
+    background-color: nb-theme(table-striped-background-color);
+  }
+
+  nb-icon {
+    cursor: pointer;
+  }
+}
